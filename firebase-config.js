@@ -1,0 +1,11 @@
+export const firebaseConfig = {
+  apiKey: "AIzaSyBNuIZisQ7DnRMqw1Kus1pMHSxdhDgp6ng",
+  authDomain: "wsf-rainforest-falls.firebaseapp.com",
+  databaseURL: "https://wsf-rainforest-falls-default-rtdb.firebaseio.com",
+  projectId: "wsf-rainforest-falls",
+  storageBucket: "wsf-rainforest-falls.firebasestorage.app",
+  messagingSenderId: "107480778837",
+  appId: "1:107480778837:web:5a71a951d43531bfab2cdc"
+};
+
+export const campaignPath = "campaigns/rainforest-falls";

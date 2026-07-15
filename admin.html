@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#073b2b">
+  <title>WSF Live Giving Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="panel" id="loginPanel">
+      <p class="kicker">Winston Salem First</p>
+      <h1>WSF Live Giving</h1>
+      <p>Sign in with the Firebase email/password account you created.</p>
+
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+
+        <button type="submit">Sign in</button>
+        <p class="form-message" id="loginMessage"></p>
+      </form>
+    </section>
+
+    <section class="panel hidden" id="dashboardPanel">
+      <div class="panel-header">
+        <div>
+          <p class="kicker">Winston Salem First</p>
+          <h1>Rainforest Falls Admin</h1>
+        </div>
+        <button type="button" class="secondary" id="logoutButton">Sign out</button>
+      </div>
+
+      <div class="live-summary">
+        <span>Live total</span>
+        <strong id="liveTotal">$0</strong>
+      </div>
+
+      <div class="quick-buttons">
+        <button type="button" data-add="25">+$25</button>
+        <button type="button" data-add="50">+$50</button>
+        <button type="button" data-add="100">+$100</button>
+        <button type="button" data-add="250">+$250</button>
+        <button type="button" data-add="500">+$500</button>
+      </div>
+
+      <form id="campaignForm">
+        <label for="raised">Raised</label>
+        <input id="raised" type="number" min="0" step="1" required>
+
+        <label for="goal">Goal</label>
+        <input id="goal" type="number" min="1" step="1" required>
+
+        <label for="campaignNameInput">Campaign name</label>
+        <input id="campaignNameInput" type="text" required>
+
+        <label for="subtitleInput">Subtitle</label>
+        <input id="subtitleInput" type="text" required>
+
+        <label for="givingUrlInput">Giving URL</label>
+        <input id="givingUrlInput" type="url" required>
+
+        <button type="submit">Save live update</button>
+        <p class="form-message" id="saveMessage"></p>
+      </form>
+
+      <a class="display-link" href="/" target="_blank">Open public display ↗</a>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
