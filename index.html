@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111d">
+  <title>Make Room | Winston Salem First</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="scene">
+    <div class="photo" aria-hidden="true"></div>
+    <div class="future-lot" id="futureLot" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="shade" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <p class="church">WINSTON SALEM FIRST</p>
+        <p class="tagline">LOVING YOU INTO GOD'S FAMILY AND OURS</p>
+      </div>
+      <div class="impact-strip" aria-label="Campaign impact">
+        <div><strong>MORE</strong><span>PEOPLE</span></div>
+        <div><strong>BIGGER</strong><span>IMPACT</span></div>
+        <div><strong>BRIGHTER</strong><span>TOMORROW</span></div>
+      </div>
+    </header>
+
+    <section class="hero" aria-live="polite">
+      <div class="campaign-copy">
+        <h1 id="campaignName">MAKE <em>ROOM</em></h1>
+        <p class="subtitle" id="campaignSubtitle">Creating Space. Reaching People. Building the Future.</p>
+      </div>
+
+      <div class="live-card">
+        <div class="amount" id="amountRaised">$0</div>
+        <p class="goal-line">RAISED TOWARD OUR <strong id="goalAmount">$300,000</strong> GOAL</p>
+        <div class="progress-track" id="progressTrack" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="stats">
+          <strong id="percentage">0%</strong><span>FUNDED</span>
+          <div class="remaining"><strong id="remaining">$300,000</strong><span> TO GO</span></div>
+        </div>
+        <p class="message" id="message">Together, we're making room for more people to encounter Jesus.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="priorities">
+        <span>ACQUIRE PROPERTY</span><i></i><span>RENOVATIONS &amp; IMPROVEMENTS</span><i></i><span>INCREASE PARKING</span><i></i><span>WELCOME MORE GUESTS</span>
+      </div>
+      <a id="giveButton" class="give-button" href="https://app.easytithe.com/App/Giving/wsf" target="_blank" rel="noopener">GIVE TODAY</a>
+      <div class="connection"><strong id="status">Connecting…</strong><span id="updated">Waiting for live data</span></div>
+    </footer>
+
+    <div class="goal-celebration" id="goalCelebration" aria-hidden="true">
+      <div><small>WINSTON SALEM FIRST</small><strong>WE MADE ROOM!</strong><span>$300,000 GOAL REACHED</span></div>
+    </div>
+    <canvas id="confetti"></canvas>
+  </main>
+  <script type="module" src="display.js"></script>
+</body>
+</html>
