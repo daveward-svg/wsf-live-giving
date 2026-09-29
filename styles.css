@@ -448,3 +448,200 @@ button,
     min-width: 470px;
   }
 }
+/* =========================================================
+   MOBILE CLEANUP
+   Keeps desktop / ProPresenter unchanged
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  /* Give mobile content breathing room */
+  .scene {
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  .topbar {
+    padding: 20px 18px 10px;
+    display: block;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .church {
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    white-space: normal;
+  }
+
+  .tagline {
+    margin-top: 6px;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    white-space: normal;
+  }
+
+  /* Stack the impact statements more cleanly */
+  .impact-strip {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 8px;
+  }
+
+  .impact-strip div {
+    min-width: 0;
+    padding: 8px 3px;
+  }
+
+  .impact-strip strong {
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+  }
+
+  .impact-strip span {
+    display: block;
+    margin-top: 3px;
+    font-size: 8px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  /* Main content */
+  .hero {
+    width: 100%;
+    padding: 25px 18px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .campaign-copy {
+    width: 100%;
+    margin-top: 12vh;
+  }
+
+  /* MAKE ROOM */
+  #campaignName {
+    width: 100%;
+    margin: 0;
+    font-size: clamp(48px, 15vw, 72px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  /* Campaign description */
+  #campaignSubtitle {
+    width: 100%;
+    max-width: 100%;
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.45;
+    letter-spacing: 0;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  /* Giving information */
+  .live-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  #amountRaised {
+    font-size: clamp(52px, 16vw, 72px);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Keep long text from overflowing */
+  .live-card p,
+  .live-card span,
+  .live-card div {
+    max-width: 100%;
+  }
+
+  /* Give button */
+  .give-button,
+  .give-btn,
+  .cta {
+    display: flex;
+    width: 100%;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 18px;
+    text-align: center;
+  }
+
+  /* QR is secondary on phones */
+  .qr,
+  .qr-code,
+  #qrCode,
+  #qrcode {
+    margin-top: 18px;
+  }
+
+  .qr img,
+  .qr-code img,
+  #qrCode img,
+  #qrcode img {
+    width: 82px;
+    height: auto;
+  }
+}
+
+
+/* Extra-small phones */
+@media (max-width: 430px) {
+
+  .topbar {
+    padding: 18px 16px 8px;
+  }
+
+  .hero {
+    padding: 20px 16px 28px;
+  }
+
+  .campaign-copy {
+    margin-top: 8vh;
+  }
+
+  #campaignName {
+    font-size: 14vw;
+  }
+
+  #campaignSubtitle {
+    font-size: 15px;
+  }
+
+  .impact-strip strong {
+    font-size: 9px;
+  }
+
+  .impact-strip span {
+    font-size: 7px;
+  }
+
+  .live-card {
+    padding: 22px 17px;
+  }
+
+  #amountRaised {
+    font-size: 15vw;
+  }
+}
