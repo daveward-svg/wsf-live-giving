@@ -1,5 +1,6 @@
 /* =========================================================
-   WSF MAKE ROOM — LIVE GIVING DISPLAY
+   WSF MAKE ROOM
+   CLEAN MASTER STYLESHEET
    Desktop / ProPresenter + Mobile
    ========================================================= */
 
@@ -10,795 +11,670 @@
 html,
 body {
   margin: 0;
+  padding: 0;
   width: 100%;
   min-height: 100%;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #07111d;
-  color: white;
-} 
-
-body {
-  min-height: 100vh;
 }
 
-/* MAIN SCENE */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #07111d;
+  color: #ffffff;
+}
+
+body,
+.scene {
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MAIN SCENE / BACKGROUND
+   ========================================================= */
 
 .scene {
   position: relative;
+  width: 100%;
   min-height: 100vh;
-  overflow: hidden;
   isolation: isolate;
-  display: flex;
-  flex-direction: column;
 }
-
-/* CHURCH BACKGROUND */
 
 .photo {
   position: fixed;
   inset: 0;
   z-index: -4;
 
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(3, 12, 23, 0.92) 0%,
-      rgba(3, 12, 23, 0.72) 42%,
-      rgba(3, 12, 23, 0.28) 100%
-    ),
-    url("./assets/wsf-building.jpg");
-
+  background-image: url("assets/wsf-building.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
 }
-
-/* EXTRA DARK GRADIENT */
 
 .shade {
   position: fixed;
   inset: 0;
   z-index: -3;
-  pointer-events: none;
 
   background:
     linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.12) 0%,
-      rgba(0, 0, 0, 0.12) 55%,
-      rgba(0, 0, 0, 0.72) 100%
+      90deg,
+      rgba(3, 10, 18, .91) 0%,
+      rgba(3, 10, 18, .72) 42%,
+      rgba(3, 10, 18, .40) 100%
     );
 }
-
-/* DECORATIVE PARKING LOT LINES */
 
 .future-lot {
   position: fixed;
   inset: 0;
   z-index: -2;
-  opacity: 0.12;
   pointer-events: none;
+  opacity: .16;
 }
 
 .future-lot span {
   position: absolute;
-  bottom: -10%;
   width: 3px;
-  height: 52%;
-  background: rgba(255,255,255,0.9);
-  transform: rotate(28deg);
-  transform-origin: bottom;
+  height: 40%;
+  background: #ffffff;
+  transform: rotate(29deg);
+  bottom: -8%;
 }
 
-.future-lot span:nth-child(1) { left: 53%; }
-.future-lot span:nth-child(2) { left: 61%; }
-.future-lot span:nth-child(3) { left: 69%; }
-.future-lot span:nth-child(4) { left: 77%; }
-.future-lot span:nth-child(5) { left: 85%; }
-.future-lot span:nth-child(6) { left: 93%; }
+.future-lot span:nth-child(1) { right: 4%; }
+.future-lot span:nth-child(2) { right: 10%; }
+.future-lot span:nth-child(3) { right: 16%; }
+.future-lot span:nth-child(4) { right: 22%; }
+.future-lot span:nth-child(5) { right: 28%; }
+.future-lot span:nth-child(6) { right: 34%; }
 
-/* TOP BRAND AREA */
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
 .topbar {
-  width: 100%;
-  padding: clamp(22px, 3vw, 52px) clamp(26px, 5vw, 90px);
+  position: relative;
+  z-index: 2;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 30px;
+
+  width: 100%;
+  padding: 48px 6.5% 20px;
 }
 
-.brand {
-  max-width: 680px;
-}
-
-.church {
-  margin: 0 0 7px;
-  font-size: clamp(14px, 1.2vw, 22px);
-  font-weight: 800;
-  letter-spacing: 0.18em;
-}
-
-.tagline {
+.brand .church {
   margin: 0;
-  font-size: clamp(11px, 0.9vw, 17px);
-  letter-spacing: 0.08em;
-  opacity: 0.82;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 4px;
 }
 
-/* IMPACT WORDS */
+.brand .tagline {
+  margin: 7px 0 0;
+  font-size: 13px;
+  letter-spacing: 1px;
+  opacity: .88;
+}
 
 .impact-strip {
   display: flex;
-  gap: clamp(12px, 2vw, 35px);
+  gap: 34px;
+}
+
+.impact-strip > div {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
-.impact-strip div {
-  display: flex;
-  flex-direction: column;
-}
-
 .impact-strip strong {
-  font-size: clamp(12px, 1vw, 18px);
-  letter-spacing: 0.12em;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .impact-strip span {
-  font-size: clamp(9px, 0.7vw, 13px);
-  opacity: 0.72;
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  letter-spacing: 1px;
+  opacity: .85;
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
-  flex: 1;
-  width: 100%;
-  padding: 2vh clamp(26px, 5vw, 90px) 5vh;
+  position: relative;
+  z-index: 2;
+
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(350px, 0.75fr);
+  grid-template-columns: minmax(0, 1.45fr) minmax(380px, .75fr);
   align-items: center;
-  gap: clamp(35px, 6vw, 110px);
+  gap: 70px;
+
+  width: 87%;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-height: 560px;
 }
 
-/* CAMPAIGN COPY */
-
 .campaign-copy {
-  align-self: center;
+  min-width: 0;
 }
 
 #campaignName {
   margin: 0;
-  font-size: clamp(62px, 8.5vw, 150px);
-  line-height: 0.83;
+
+  font-size: clamp(76px, 7.6vw, 132px);
   font-weight: 900;
-  letter-spacing: -0.065em;
-  text-transform: uppercase;
-  text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+  line-height: .88;
+  letter-spacing: -7px;
+  white-space: nowrap;
 }
 
 #campaignName em {
-  color: #f6c453;
+  color: #ffc44d;
   font-style: normal;
 }
 
-#campaignSubtitle {
-  max-width: 760px;
-  margin: 28px 0 0;
-  font-size: clamp(19px, 1.7vw, 32px);
-  line-height: 1.35;
-  font-weight: 500;
-  text-shadow: 0 3px 16px rgba(0,0,0,0.65);
+.subtitle {
+  margin: 24px 0 0;
+
+  font-size: clamp(20px, 1.6vw, 30px);
+  font-weight: 600;
+  line-height: 1.3;
 }
 
-/* LIVE GIVING CARD */
+
+/* =========================================================
+   LIVE GIVING CARD
+   ========================================================= */
 
 .live-card {
   width: 100%;
-  max-width: 600px;
+  max-width: 520px;
   justify-self: end;
-  padding: clamp(28px, 3vw, 52px);
 
-  background: rgba(5, 18, 28, 0.88);
-  border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 28px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
+  padding: 42px 42px 38px;
 
-/* LIVE TOTAL */
+  background: rgba(4, 20, 31, .94);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 26px;
 
-#amountRaised {
-  font-size: clamp(64px, 6vw, 112px);
-  line-height: 1;
-  font-weight: 900;
-  color: #f6c453;
-  letter-spacing: -0.05em;
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
 }
 
 .live-card::before {
   content: "RAISED SO FAR";
   display: block;
-  margin-bottom: 8px;
-  font-size: clamp(12px, 0.9vw, 16px);
+
+  margin-bottom: 15px;
+
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 0.18em;
-  opacity: 0.75;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.78);
 }
 
-/* PROGRESS BAR */
+.amount {
+  color: #ffc44d;
 
-.progress-track,
-.progress,
-.bar,
-.progress-bar {
-  overflow: hidden;
-  border-radius: 999px;
+  font-size: clamp(70px, 6vw, 104px);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -5px;
+  white-space: nowrap;
 }
 
-.progress-track,
-.bar {
+.goal-line {
+  margin: 24px 0 0;
+
+  font-size: 14px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.goal-line strong {
+  font-weight: 900;
+}
+
+.progress-track {
+  position: relative;
+
   width: 100%;
-  min-height: 18px;
-  margin-top: 24px;
-  background: rgba(255,255,255,0.15);
-}
+  height: 16px;
 
-.progress,
-.progress-bar {
-  transition: width 900ms cubic-bezier(.2,.8,.2,1);
-}
+  margin: 23px 0 10px;
 
-/* LINKS / BUTTONS */
+  overflow: hidden;
 
-a {
-  color: inherit;
-}
-
-button,
-.give-button,
-.give-btn,
-.cta {
-  border: 0;
+  background: rgba(255,255,255,.16);
   border-radius: 999px;
-  cursor: pointer;
-  font: inherit;
-  font-weight: 800;
 }
 
-/* QR CODE
-   Desktop / ProPresenter: prominent
-*/
+.progress-fill {
+  width: 0%;
+  height: 100%;
 
-.qr,
-.qr-code,
-#qrCode,
-#qrcode {
-  margin-top: 28px;
+  background: #ffc44d;
+  border-radius: inherit;
+
+  transition: width .8s ease;
 }
 
-.qr img,
-.qr-code img,
-#qrCode img,
-#qrcode img {
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 100%;
+}
+
+.stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.stats strong {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.stats span {
+  font-size: 13px;
+  opacity: .85;
+}
+
+.message {
+  margin: 25px 0 0;
+
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  position: relative;
+  z-index: 2;
+
+  width: 87%;
+  max-width: 1500px;
+
+  margin: 15px auto 0;
+  padding: 20px 0 40px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "priorities button"
+    "connection button";
+
+  align-items: center;
+  gap: 16px 30px;
+}
+
+.priorities {
+  grid-area: priorities;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.priorities span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+
+.priorities i {
   display: block;
-  width: clamp(150px, 11vw, 220px);
-  height: auto;
-  padding: 10px;
-  background: white;
-  border-radius: 16px;
+
+  width: 4px;
+  height: 4px;
+
+  background: #ffc44d;
+  border-radius: 50%;
 }
+
+.give-button {
+  grid-area: button;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 190px;
+  min-height: 58px;
+
+  padding: 15px 26px;
+
+  color: #07111d;
+  background: #ffc44d;
+
+  border-radius: 999px;
+
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+.give-button:hover {
+  transform: translateY(-2px);
+}
+
+.connection {
+  grid-area: connection;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  opacity: .78;
+}
+
+.connection strong {
+  color: #ffc44d;
+}
+
+
+/* =========================================================
+   GOAL CELEBRATION
+   HIDDEN — NO "GOAL REACHED" VERBIAGE
+   ========================================================= */
+
+.goal-celebration {
+  display: none !important;
+}
+
+#confetti {
+  display: none !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+
+    padding: 40px 0;
+  }
+
+  .campaign-copy {
+    text-align: center;
+  }
+
+  #campaignName {
+    white-space: normal;
+    letter-spacing: -4px;
+  }
+
+  .live-card {
+    justify-self: center;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "priorities"
+      "button"
+      "connection";
+  }
+
+  .give-button {
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
+  }
+}
+
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media (max-width: 800px) {
-
-  .scene {
-    min-height: 100svh;
-  }
+@media (max-width: 700px) {
 
   .photo {
-    position: fixed;
+    background-position: center;
+  }
 
-    background-image:
+  .shade {
+    background:
       linear-gradient(
         180deg,
-        rgba(3,12,23,0.34) 0%,
-        rgba(3,12,23,0.75) 42%,
-        rgba(3,12,23,0.97) 78%
-      ),
-      url("./assets/wsf-building.jpg");
-
-    background-position: center top;
+        rgba(3,10,18,.45) 0%,
+        rgba(3,10,18,.72) 38%,
+        rgba(3,10,18,.96) 100%
+      );
   }
 
+  /* Remove desktop header on phone */
   .topbar {
-    padding: 22px 20px;
-    display: block;
-  }
-
-  .church {
-    font-size: 13px;
-  }
-
-  .tagline {
-    font-size: 10px;
-  }
-
-  .impact-strip {
-    margin-top: 16px;
-    justify-content: space-between;
-    gap: 5px;
-  }
-
-  .impact-strip strong {
-    font-size: 10px;
-  }
-
-  .impact-strip span {
-    font-size: 8px;
+    display: none;
   }
 
   .hero {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: stretch;
-    padding: 20px 18px 30px;
-    gap: 22px;
-  }
 
-  .campaign-copy {
-    margin-top: 18vh;
-  }
-
-  #campaignName {
-    font-size: clamp(54px, 17vw, 82px);
-    line-height: 0.86;
-  }
-
-  #campaignSubtitle {
-    margin-top: 18px;
-    font-size: 17px;
-    line-height: 1.4;
-  }
-
-  .live-card {
-    max-width: none;
-    padding: 25px 22px;
-    border-radius: 22px;
-  }
-
-  #amountRaised {
-    font-size: clamp(55px, 17vw, 78px);
-  }
-
-  /*
-     QR still exists, but is intentionally NOT
-     front-and-center on mobile.
-  */
-
-  .qr img,
-  .qr-code img,
-  #qrCode img,
-  #qrcode img {
-    width: 90px;
-  }
-
-  .qr,
-  .qr-code,
-  #qrCode,
-  #qrcode {
-    margin-top: 18px;
-  }
-
-  button,
-  .give-button,
-  .give-btn,
-  .cta {
     width: 100%;
-    min-height: 54px;
-  }
-}
+    min-height: auto;
 
-/* VERY SMALL PHONES */
-
-@media (max-width: 420px) {
-
-  .topbar {
-    padding: 18px 16px;
-  }
-
-  .hero {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .campaign-copy {
-    margin-top: 12vh;
-  }
-
-  #campaignName {
-    font-size: 15vw;
-  }
-
-  #campaignSubtitle {
-    font-size: 15px;
-  }
-
-  .live-card {
-    padding: 22px 18px;
-  }
-}
-
-/* LARGE 16:9 PRESENTATION DISPLAYS */
-
-@media (min-width: 1400px) and (min-aspect-ratio: 16/10) {
-
-  .hero {
-    min-height: 70vh;
-  }
-
-  .live-card {
-    min-width: 470px;
-  }
-}
-/* =========================================================
-   MOBILE CLEANUP
-   Keeps desktop / ProPresenter unchanged
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-  /* Give mobile content breathing room */
-  .scene {
-    min-height: 100svh;
-    overflow-x: hidden;
-  }
-
-  /* Header */
-  .topbar {
-    padding: 20px 18px 10px;
-    display: block;
-  }
-
-  .brand {
-    width: 100%;
-  }
-
-  .church {
-    font-size: 13px;
-    line-height: 1.2;
-    letter-spacing: 0.12em;
-    white-space: normal;
-  }
-
-  .tagline {
-    margin-top: 6px;
-    font-size: 10px;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
-    white-space: normal;
-  }
-
-  /* Stack the impact statements more cleanly */
-  .impact-strip {
-    margin-top: 18px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    gap: 8px;
-  }
-
-  .impact-strip div {
-    min-width: 0;
-    padding: 8px 3px;
-  }
-
-  .impact-strip strong {
-    display: block;
-    font-size: 10px;
-    line-height: 1.2;
-    letter-spacing: 0.04em;
-  }
-
-  .impact-strip span {
-    display: block;
-    margin-top: 3px;
-    font-size: 8px;
-    line-height: 1.2;
-    letter-spacing: 0;
-  }
-
-  /* Main content */
-  .hero {
-    width: 100%;
-    padding: 25px 18px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 22px;
-  }
-
-  .campaign-copy {
-    width: 100%;
-    margin-top: 12vh;
-  }
-
-  /* MAKE ROOM */
-  #campaignName {
-    width: 100%;
     margin: 0;
-    font-size: clamp(48px, 15vw, 72px);
-    line-height: 0.92;
-    letter-spacing: -0.045em;
-    overflow-wrap: normal;
-    word-break: normal;
+    padding: 55px 18px 20px;
+
+    gap: 28px;
   }
 
-  /* Campaign description */
-  #campaignSubtitle {
+  .campaign-copy {
     width: 100%;
-    max-width: 100%;
-    margin: 16px 0 0;
-    font-size: 16px;
-    line-height: 1.45;
-    letter-spacing: 0;
-    overflow-wrap: normal;
-    word-break: normal;
-  }
-
-  /* Giving information */
-  .live-card {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 24px 20px;
-    border-radius: 20px;
-  }
-
-  #amountRaised {
-    font-size: clamp(52px, 16vw, 72px);
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  /* Keep long text from overflowing */
-  .live-card p,
-  .live-card span,
-  .live-card div {
-    max-width: 100%;
-  }
-
-  /* Give button */
-  .give-button,
-  .give-btn,
-  .cta {
-    display: flex;
-    width: 100%;
-    min-height: 54px;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 18px;
     text-align: center;
   }
 
-  /* QR is secondary on phones */
-  .qr,
-  .qr-code,
-  #qrCode,
-  #qrcode {
-    margin-top: 18px;
-  }
-
-  .qr img,
-  .qr-code img,
-  #qrCode img,
-  #qrcode img {
-    width: 82px;
-    height: auto;
-  }
-}
-
-
-/* Extra-small phones */
-@media (max-width: 430px) {
-
-  .topbar {
-    padding: 18px 16px 8px;
-  }
-
-  .hero {
-    padding: 20px 16px 28px;
-  }
-
-  .campaign-copy {
-    margin-top: 8vh;
-  }
-
   #campaignName {
-    font-size: 14vw;
+    font-size: clamp(48px, 14vw, 72px);
+    line-height: .9;
+    letter-spacing: -3px;
+    white-space: nowrap;
   }
 
-  #campaignSubtitle {
-    font-size: 15px;
-  }
+  .subtitle {
+    max-width: 500px;
 
-  .impact-strip strong {
-    font-size: 9px;
-  }
+    margin: 18px auto 0;
 
-  .impact-strip span {
-    font-size: 7px;
+    font-size: 18px;
+    line-height: 1.4;
   }
 
   .live-card {
-    padding: 22px 17px;
-  }
-
-  #amountRaised {
-    font-size: 15vw;
-  }
-}
-/* =========================================================
-   MAKE ROOM — MOBILE FINAL FIX
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-  /* Keep page from creating horizontal overflow */
-  html,
-  body {
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 550px;
+
+    margin: 0 auto;
+    padding: 27px 22px;
+
+    border-radius: 25px;
   }
 
-  /* ---------- IMPACT / PURPOSE ITEMS ---------- */
+  .live-card::before {
+    margin-bottom: 13px;
 
-  .impact-strip {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
-    width: 100% !important;
-    padding: 0 18px !important;
-    margin: 28px auto !important;
+    font-size: 12px;
+    letter-spacing: 3px;
   }
 
-  .impact-strip > div {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-width: 0 !important;
-    padding: 14px 8px !important;
-    text-align: center !important;
+  .amount {
+    font-size: clamp(60px, 17vw, 90px);
+    letter-spacing: -3px;
   }
 
-  .impact-strip strong {
-    display: block !important;
-    font-size: 11px !important;
-    line-height: 1.2 !important;
-    white-space: normal !important;
+  .goal-line {
+    margin-top: 22px;
+    font-size: 15px;
   }
 
-  .impact-strip span {
-    display: block !important;
-    font-size: 9px !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;
+  .progress-track {
+    margin-top: 20px;
   }
 
-
-  /* ---------- BOTTOM INFORMATION ---------- */
-
-  footer,
-  .footer,
-  .status,
-  .statusbar,
-  .status-bar {
-    width: 100% !important;
-    max-width: 100% !important;
+  .stats {
+    flex-direction: column;
+    gap: 5px;
   }
 
-  footer > *,
-  .footer > *,
-  .status > *,
-  .statusbar > *,
-  .status-bar > * {
-    white-space: normal !important;
+  .stats > div {
+    gap: 7px;
+  }
+
+  .stats strong {
+    font-size: 17px;
+  }
+
+  .stats span {
+    font-size: 14px;
+  }
+
+  .message {
+    margin-top: 24px;
+
+    font-size: 17px;
+    line-height: 1.5;
   }
 
 
-  /* ---------- FIREBASE STATUS ---------- */
+  /* ---------- MOBILE FOOTER ---------- */
 
-  .firebase-status,
-  .live-status {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 4px !important;
+  .footer {
+    display: flex;
+    flex-direction: column;
 
-    width: 100% !important;
-    padding: 12px 18px !important;
+    width: 100%;
 
-    text-align: center !important;
-    line-height: 1.3 !important;
+    margin: 0;
+    padding: 15px 18px 45px;
+
+    gap: 22px;
   }
 
+  .priorities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-  /* ---------- BOTTOM BRAND / GOAL ---------- */
+    width: 100%;
 
-  .footer-brand,
-  .footer-copy,
-  .footer-info {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-
-    width: 100% !important;
-    gap: 6px !important;
-
-    padding: 12px 18px !important;
-    text-align: center !important;
+    gap: 10px;
   }
 
+  .priorities span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  /* ---------- GIVE BUTTON ---------- */
+    min-height: 55px;
 
-  .give-button,
-  .give-btn,
-  .cta {
-    margin: 24px auto !important;
-    width: calc(100% - 36px) !important;
-    max-width: 420px !important;
-    min-height: 56px !important;
+    padding: 10px 8px;
 
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 12px;
 
-    text-align: center !important;
+    font-size: 11px;
+    line-height: 1.3;
+
+    text-align: center;
+    white-space: normal;
   }
 
-
-  /* ---------- GENERAL TEXT SAFETY ---------- */
-
-  p,
-  span,
-  strong,
-  div {
-    overflow-wrap: normal;
-    word-break: normal;
+  .priorities i {
+    display: none;
   }
+
+  .give-button {
+    order: 2;
+
+    width: 100%;
+    max-width: 500px;
+    min-height: 60px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+  }
+
+  .connection {
+    order: 3;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 4px;
+
+    text-align: center;
+
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
 }
 
 
 /* =========================================================
-   SMALL IPHONES
+   SMALL PHONES
    ========================================================= */
 
 @media (max-width: 430px) {
 
-  .impact-strip {
-    grid-template-columns: 1fr 1fr !important;
-    padding: 0 14px !important;
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .impact-strip > div {
-    padding: 12px 5px !important;
+  #campaignName {
+    font-size: 13.5vw;
+    letter-spacing: -2px;
   }
 
-  .firebase-status,
-  .live-status,
-  .footer-brand,
-  .footer-copy,
-  .footer-info {
-    font-size: 13px !important;
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .live-card {
+    padding: 25px 19px;
+  }
+
+  .amount {
+    font-size: 17vw;
+  }
+
+  .goal-line {
+    font-size: 13px;
+  }
+
+  .footer {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
