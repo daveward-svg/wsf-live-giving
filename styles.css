@@ -645,3 +645,160 @@ button,
     font-size: 15vw;
   }
 }
+/* =========================================================
+   MAKE ROOM — MOBILE FINAL FIX
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  /* Keep page from creating horizontal overflow */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* ---------- IMPACT / PURPOSE ITEMS ---------- */
+
+  .impact-strip {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 0 18px !important;
+    margin: 28px auto !important;
+  }
+
+  .impact-strip > div {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-width: 0 !important;
+    padding: 14px 8px !important;
+    text-align: center !important;
+  }
+
+  .impact-strip strong {
+    display: block !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  .impact-strip span {
+    display: block !important;
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+  }
+
+
+  /* ---------- BOTTOM INFORMATION ---------- */
+
+  footer,
+  .footer,
+  .status,
+  .statusbar,
+  .status-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  footer > *,
+  .footer > *,
+  .status > *,
+  .statusbar > *,
+  .status-bar > * {
+    white-space: normal !important;
+  }
+
+
+  /* ---------- FIREBASE STATUS ---------- */
+
+  .firebase-status,
+  .live-status {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+
+    width: 100% !important;
+    padding: 12px 18px !important;
+
+    text-align: center !important;
+    line-height: 1.3 !important;
+  }
+
+
+  /* ---------- BOTTOM BRAND / GOAL ---------- */
+
+  .footer-brand,
+  .footer-copy,
+  .footer-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    gap: 6px !important;
+
+    padding: 12px 18px !important;
+    text-align: center !important;
+  }
+
+
+  /* ---------- GIVE BUTTON ---------- */
+
+  .give-button,
+  .give-btn,
+  .cta {
+    margin: 24px auto !important;
+    width: calc(100% - 36px) !important;
+    max-width: 420px !important;
+    min-height: 56px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    text-align: center !important;
+  }
+
+
+  /* ---------- GENERAL TEXT SAFETY ---------- */
+
+  p,
+  span,
+  strong,
+  div {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+
+/* =========================================================
+   SMALL IPHONES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .impact-strip {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 0 14px !important;
+  }
+
+  .impact-strip > div {
+    padding: 12px 5px !important;
+  }
+
+  .firebase-status,
+  .live-status,
+  .footer-brand,
+  .footer-copy,
+  .footer-info {
+    font-size: 13px !important;
+  }
+}
